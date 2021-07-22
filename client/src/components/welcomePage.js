@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './WelcomePage.css'
+import {Link } from 'react-router-dom'
 
 export default class WelcomePage extends Component {
     render() {
@@ -16,8 +17,8 @@ export default class WelcomePage extends Component {
 
                     <div>
                         {/* to be replaced with <Link> when the Signup and Login feature is finished */}
-                        <a href=''>Sign up</a>
-                        <a href=''>Log in</a>
+                        <Link to="/login">Log in</Link>
+                        <Link to="/signup">Sign</Link>
                     </div>
                 </div>
             </section>
