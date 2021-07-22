@@ -39,8 +39,8 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<>
-				<h2>Login</h2>
+			<section className='formContainer'>
+				<h2>Log in</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="name">name: </label>
 					<input
@@ -63,12 +63,12 @@ export default class Login extends Component {
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
-					<button type="submit">Login</button>
+					<button type="submit">Log in!</button>
 					{this.state.message && (
 						<h3>{this.state.message}</h3>
 					)}
 				</form>
-			</>
+			</section>
 		)
 
 	}

@@ -1,7 +1,5 @@
 import './App.css';
 import React from 'react';
-//import Projects from './components/Projects';
-//import ProjectDetails from './components/ProjectDetails';
 //import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 //import ProtectedRoute from './components/ProtectedRoute';
@@ -25,7 +23,10 @@ class App extends React.Component {
     return (
       <div className="App" >
 
-        <WelcomePage user={this.state.user} setUser={this.setUser}/>
+        <Route
+          exact path='/'
+          render={props => <WelcomePage setUser={this.setUser} {...props}/>}
+        />
 
         <Route
           exact path="/login"
