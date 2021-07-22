@@ -5,7 +5,7 @@ const passport = require('passport');
 
 router.post('/signup', (req, res, next) => {
 	// get username and password
-	const { email, password } = req.body;
+	const { name, email, password } = req.body;
 	// is the password at least 8 chars
 	if (password.length < 8) {
 		// if not we show the signup form again with a message
@@ -14,6 +14,10 @@ router.post('/signup', (req, res, next) => {
 	if (email === '') {
 		return res.status(400).json({ message: 'Your email cannot be empty' });
 	}
+	if (name === '') {
+		return res.status(400).json({ message: 'Your name cannot be empty' });
+	}
+
 	// validation passed - password is long enough and the username is not empty
 	// check if the username already exists
 	User.findOne({ email: email })
@@ -28,7 +32,7 @@ router.post('/signup', (req, res, next) => {
 				const hash = bcrypt.hashSync(password, salt);
 				console.log(hash);
 				// create the user in the database
-				User.create({ email: email, password: hash })
+				User.create({name: name, email: email, password: hash })
 					.then(createdUser => {
 						console.log(createdUser);
 						// log the user in immediately

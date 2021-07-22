@@ -27,7 +27,15 @@ class App extends React.Component {
 
         <WelcomePage user={this.state.user} setUser={this.setUser}/>
 
+        <Route
+          exact path="/login"
+          render={props => <Login setUser={this.setUser} {...props}/>}
+          />
 
+        <Route
+          exact path="/signup"
+          render={props => <Signup setUser={this.setUser} {...props}/>}
+          />
         {/* <Route
           exact path='/projects'
           component={Projects}

@@ -10,10 +10,21 @@ export default class Signup extends Component {
 		message: ''
 	}
 
-	handleChange = e => {
-		const { name, value } = e.target;
+	handleNameChange = e => {
 		this.setState({
-			[name]: value
+			name: e.target.value
+		})
+	}
+
+	handleEmailChange = e => {
+		this.setState({
+			email: e.target.value
+		})
+	}
+
+	handlePasswordChange = e => {
+		this.setState({
+			password: e.target.value
 		})
 	}
 
@@ -34,7 +45,7 @@ export default class Signup extends Component {
 					// -> we want to add the user also in the state of App.js
 					this.props.setUser(response);
 					// redirect to /projects
-					this.props.history.push('/projects');
+					this.props.history.push('/');
 				}
 			})
 	}
@@ -49,21 +60,21 @@ export default class Signup extends Component {
 						type="text"
 						name="name"
 						value={this.state.name}
-						onChange={this.handleChange}
+						onChange={this.handleNameChange}
 					/>
                     <label htmlFor="email">email: </label>
 					<input
 						type="text"
 						name="email"
 						value={this.state.email}
-						onChange={this.handleChange}
+						onChange={this.handleEmailChange}
 					/>
 					<label htmlFor="password">Password: </label>
 					<input
 						type="password"
 						name="password"
 						value={this.state.password}
-						onChange={this.handleChange}
+						onChange={this.handlePasswordChange}
 					/>
 					<button type="submit">Signup</button>
 					{this.state.message && (
