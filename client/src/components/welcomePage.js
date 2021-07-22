@@ -1,9 +1,18 @@
-import React, { Component } from 'react'
-import './WelcomePage.css'
-import {Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import './WelcomePage.css';
+import { Link } from 'react-router-dom';
+import { logout } from '../services/auth';
 
 export default class WelcomePage extends Component {
+
+    handleLogout = () => {
+        logout().then(() => {
+            this.props.setUser(null)
+        })
+    }
+
     render() {
+
         return (
             <section>
                 <div className='banner'>
@@ -16,9 +25,9 @@ export default class WelcomePage extends Component {
                     </p>
 
                     <div>
-                        {/* to be replaced with <Link> when the Signup and Login feature is finished */}
                         <Link to="/login">Log in</Link>
                         <Link to="/signup">Sign</Link>
+                        <Link to='/' onClick={() => this.handleLogout()}>Logout</Link>
                     </div>
                 </div>
             </section>

@@ -6,8 +6,8 @@ import React from 'react';
 import Signup from './components/Signup';
 //import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
-import { Route, Redirect } from 'react-router-dom';
-import WelcomePage from './components/welcomePage'
+import { Route } from 'react-router-dom';
+import WelcomePage from './components/WelcomePage';
 
 class App extends React.Component {
 

@@ -10,21 +10,10 @@ export default class Signup extends Component {
 		message: ''
 	}
 
-	handleNameChange = e => {
+	handleChange = e => {
+		const {name, value} = e.target;
 		this.setState({
-			name: e.target.value
-		})
-	}
-
-	handleEmailChange = e => {
-		this.setState({
-			email: e.target.value
-		})
-	}
-
-	handlePasswordChange = e => {
-		this.setState({
-			password: e.target.value
+			[name]: value
 		})
 	}
 
@@ -60,21 +49,21 @@ export default class Signup extends Component {
 						type="text"
 						name="name"
 						value={this.state.name}
-						onChange={this.handleNameChange}
+						onChange={this.handleChange}
 					/>
                     <label htmlFor="email">email: </label>
 					<input
 						type="text"
 						name="email"
 						value={this.state.email}
-						onChange={this.handleEmailChange}
+						onChange={this.handleChange}
 					/>
 					<label htmlFor="password">Password: </label>
 					<input
 						type="password"
 						name="password"
 						value={this.state.password}
-						onChange={this.handlePasswordChange}
+						onChange={this.handleChange}
 					/>
 					<button type="submit">Signup</button>
 					{this.state.message && (
