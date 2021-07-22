@@ -26,9 +26,11 @@ body {
 }
 
 h4 {
-    color: white;
+    color: rgb(236, 217, 238);
     padding: 10px;
-    background-color: rgb(109, 89, 128);
     margin: 0 15px;
+    background-color: rgb(216, 101, 101);
+    text-shadow: 1px 1px 3px black;
+    box-shadow: 1px 1px 4px black;
 }
 

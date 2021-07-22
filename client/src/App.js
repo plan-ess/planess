@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import { Route } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
+import NavBar from './components/NavBar';
 
 class App extends React.Component {
 
@@ -20,9 +21,10 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App" >
 
+    return (
+      <div>
+        <NavBar/>
         <Route
           exact path='/'
           render={props => <WelcomePage setUser={this.setUser} {...props}/>}

@@ -1,0 +1,29 @@
+nav {
+    width: 97vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background-color: rgb(159, 144, 173);
+    box-shadow: 1px 1px 3px black;
+    margin-bottom: 0.5px;
+}
+
+nav ul {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav h3 {
+    color: rgb(236, 217, 238);
+    text-shadow: 1px 1px 3px black;
+}
+
+span {
+    color: rgb(216, 101, 101);
+}

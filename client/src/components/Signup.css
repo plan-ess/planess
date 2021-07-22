@@ -26,8 +26,10 @@ input {
 }
 
 button {
-    color: white;
-    background-color: rgb(109, 89, 128);
+    color: rgb(236, 217, 238);
+    text-shadow: 1px 1px 3px black;
+    background-color: rgb(216, 101, 101);
     margin: 0 15px;
     padding: 5px;
+    box-shadow: 1px 1px 4px black;
 }
