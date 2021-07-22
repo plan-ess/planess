@@ -1,0 +1,16 @@
+.banner {
+    height: 30vw;
+    background-image: url('../images/banner.jpeg');  
+    background-size: cover;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
