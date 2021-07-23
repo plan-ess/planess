@@ -1,13 +1,12 @@
 import './App.css';
 import React from 'react';
-//import Projects from './components/Projects';
-//import ProjectDetails from './components/ProjectDetails';
 //import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 //import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
-import { Route, Redirect } from 'react-router-dom';
-import WelcomePage from './components/welcomePage'
+import { Route } from 'react-router-dom';
+import WelcomePage from './components/WelcomePage';
+import NavBar from './components/NavBar';
 
 class App extends React.Component {
 
@@ -22,10 +21,14 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App" >
 
-        <WelcomePage user={this.state.user} setUser={this.setUser}/>
+    return (
+      <div>
+        <NavBar/>
+        <Route
+          exact path='/'
+          render={props => <WelcomePage setUser={this.setUser} {...props}/>}
+        />
 
         <Route
           exact path="/login"

@@ -19,29 +19,28 @@ export default class Login extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const { email, password } = this.state;
-		login(email, password)
+		const { name, email, password } = this.state;
+		login(name, email, password)
 			.then(response => {
+				console.log(response)
 				if (response.message) {
 					this.setState({
 						message: response.message,
+						name: '',
 						email: '',
 						password: ''
 					})
 				} else {
-					// user is correctly signed up in the backend
-					// -> we want to add the user also in the state of App.js
 					this.props.setUser(response);
-					// redirect to /projects
-					this.props.history.push('/projects');
+					this.props.history.push('/');
 				}
 			})
 	}
 
 	render() {
 		return (
-			<>
-				<h2>Login</h2>
+			<section className='formContainer'>
+				<h2>Log in</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="name">name: </label>
 					<input
@@ -64,12 +63,12 @@ export default class Login extends Component {
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
-					<button type="submit">Login</button>
+					<button type="submit">Log in!</button>
 					{this.state.message && (
 						<h3>{this.state.message}</h3>
 					)}
 				</form>
-			</>
+			</section>
 		)
 
 	}
