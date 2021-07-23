@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import { signup } from '../services/auth';
-import './Signup.css';
+import { loginHousehold } from '../services/auth';
 
-export default class Signup extends Component {
+export default class HJoin extends Component {
 
 	state = {
-		email: '',
-        name: '',
-		password: '',
+		name: '',
+		username: '',
+		pin: '',
 		message: ''
 	}
 
 	handleChange = e => {
-		const {name, value} = e.target;
+		const { name, value } = e.target;
 		this.setState({
 			[name]: value
 		})
@@ -20,39 +19,38 @@ export default class Signup extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const { name, email, password } = this.state;
-		signup(name, email, password)
+		const { name, username, pin } = this.state;
+		loginHousehold(name, username, pin)
 			.then(response => {
+				console.log(response)
 				if (response.message) {
 					this.setState({
 						message: response.message,
 						name: '',
-                        email: '',
-						password: ''
+						username: '',
+						pin: ''
 					})
 				} else {
-					// user is correctly signed up in the backend
-					// -> we want to add the user also in the state of App.js
-					this.props.setUser(response);
-					// redirect to /projects
-					this.props.history.push('/signupHousehold');
+                    //aqui deberia funcionar... y poner household.members al user, y poner agregar el household al user.household
+					this.props.setHousehold(response);
+					this.props.history.push('/');
 				}
 			})
 	}
 
 	render() {
 		return (
-			<section className="formContainer">
-				<h1>Sign up</h1>
+			<section className='formContainer'>
+				<h2>Log in</h2>
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="name">Name: </label>
+					<label htmlFor="name">name: </label>
 					<input
 						type="text"
 						name="name"
 						value={this.state.name}
 						onChange={this.handleChange}
 					/>
-                    <label htmlFor="email">Email: </label>
+					<label htmlFor="email">email: </label>
 					<input
 						type="text"
 						name="email"
@@ -66,7 +64,7 @@ export default class Signup extends Component {
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
-					<button type="submit">Sign up!</button>
+					<button type="submit">Log in!</button>
 					{this.state.message && (
 						<h3>{this.state.message}</h3>
 					)}

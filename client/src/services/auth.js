@@ -10,6 +10,18 @@ const signup = (name, email, password) => {
 		})
 }
 
+
+const signupHousehold = (name, username, pin) => {
+	return axios.post('/api/auth/signupHousehold', {name, username, pin})
+		.then(response => {
+			return response.data
+		})
+		.catch(err => {
+			return err
+		})
+}
+
+
 const login = (name, email, password) => {
 	return axios.post('/api/auth/login', {name, email, password })
 		.then(response => {
@@ -19,6 +31,17 @@ const login = (name, email, password) => {
 			return err
 		})
 }
+
+const loginHousehold = (name, username, pin) => {
+	return axios.post('/api/auth/loginHousehold', {name, username, pin })
+		.then(response => {
+			return response.data
+		})
+		.catch(err => {
+			return err
+		})
+}
+
 
 const logout = () => {
 	return axios.delete('/api/auth/logout')
@@ -30,4 +53,4 @@ const logout = () => {
 		})
 }
 
-export { signup, logout, login };
+export { signup, logout, login, signupHousehold, loginHousehold };
