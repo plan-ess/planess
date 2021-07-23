@@ -28,7 +28,7 @@ export default class WelcomePage extends Component {
                         <Link to="/signup" style={{textDecoration:'none'}}><h4>Sign up</h4></Link>
                         <Link to="/login" style={{textDecoration:'none'}}><h4>Log in</h4></Link>
 
-                        {/* <Link to='/' onClick={() => this.handleLogout()}>Logout</Link> */}
+                        <Link to='/' onClick={() => this.handleLogout()}>Logout</Link>
                     </div>
                 </div>
             </section>
