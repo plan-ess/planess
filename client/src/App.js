@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { Component } from 'react';
 //import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 //import ProtectedRoute from './components/ProtectedRoute';
@@ -7,11 +7,14 @@ import Login from './components/Login';
 import { Route } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import NavBar from './components/NavBar';
+import HCreate from './components/HCreate';
+import HJoin from './components/HJoin';
 
 class App extends React.Component {
 
   state = {
-    user: this.props.user
+    user: this.props.user,
+    household: this.props.household
   }
 
   setUser = user => {
@@ -19,6 +22,14 @@ class App extends React.Component {
       user: user
     })
   }
+
+  setHousehold = household => {
+    this.setState({
+      household: household
+    })
+  }
+
+
 
   render() {
 
@@ -39,10 +50,20 @@ class App extends React.Component {
           exact path="/signup"
           render={props => <Signup setUser={this.setUser} {...props}/>}
           />
-        {/* <Route
-          exact path='/projects'
-          component={Projects}
-        /> */}
+
+        <Route
+          exact path="/signupHousehold"
+          render={props => <HCreate user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
+          />  
+
+
+        <Route
+          exact path='/loginHousehold'
+          render={props => <HJoin  user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
+        /> 
+
+
+
         {/* This route is now protected */}
         {/* <Route
           exact path='/projects'
