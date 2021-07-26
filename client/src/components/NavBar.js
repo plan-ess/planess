@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import {logout} from '../services/auth';
+import logo from '../images/logo-planess.png';
+
 
 export default class NavBar extends Component {
 
@@ -17,8 +19,10 @@ export default class NavBar extends Component {
             <>
                 {this.props.user ? (
                     <nav>
-                        <div>
+                        <div className= "togetherFront">
                             <Link to='/household'><h3>Plan<span>Ess</span></h3></Link>
+                            <img className= "logoinNav" src =  {logo}></img>
+
                         </div>
                         <ul>
                             <li><Link to='/' onClick={() => this.handleLogout()} style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Log out</h4></Link></li>
@@ -26,8 +30,10 @@ export default class NavBar extends Component {
                     </nav>
                 ) : (
                     <nav>
-                        <div>
+                        <div className= "togetherFront" >
                             <Link to='/'><h3>Plan<span>Ess</span></h3></Link>
+                            <img className= "logoinNav" src =  {logo}></img>
+
                         </div>
                         <ul>
                             <li><Link to='/signup' style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Sign up</h4></Link></li>
