@@ -33,7 +33,7 @@ export default class JoinHousehold extends Component {
 				} else {
                     //aqui deberia funcionar... y poner household.members al user, y poner agregar el household al user.household
 					this.props.setHousehold(response);
-					this.props.history.push('/');
+					this.props.history.push('/household');
 				}
 			})
 	}
