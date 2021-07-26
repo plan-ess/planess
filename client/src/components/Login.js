@@ -4,7 +4,6 @@ import { login } from '../services/auth';
 export default class Login extends Component {
 
 	state = {
-		name: '',
 		email: '',
 		password: '',
 		message: ''
@@ -19,20 +18,19 @@ export default class Login extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const { name, email, password } = this.state;
-		login(name, email, password)
+		const { email, password } = this.state;
+		login(email, password)
 			.then(response => {
 				console.log(response)
 				if (response.message) {
 					this.setState({
 						message: response.message,
-						name: '',
 						email: '',
 						password: ''
 					})
 				} else {
 					this.props.setUser(response);
-					this.props.history.push('/');
+					this.props.history.push('/household');
 				}
 			})
 	}
@@ -42,13 +40,6 @@ export default class Login extends Component {
 			<section className='formContainer'>
 				<h2>Log in</h2>
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="name">name: </label>
-					<input
-						type="text"
-						name="name"
-						value={this.state.name}
-						onChange={this.handleChange}
-					/>
 					<label htmlFor="email">email: </label>
 					<input
 						type="text"
