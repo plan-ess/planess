@@ -5,8 +5,15 @@ const itemSchema = new Schema({
   name: String,
   quantity: Number,
   quantityType: String,
-  addedAt: Date,
-  completed: Boolean
+  addedAt: {
+    type: Date,
+    default: new Date
+  },
+  completed: {
+    type: Boolean,
+    default: false
+  },
+  addedBy: String
 });
 
 const Item = model("Item", itemSchema);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { signupHousehold } from '../services/auth';
 
-export default class HCreate extends Component {
+export default class CreateHousehold extends Component {
 
 	state = {
 		name: '',
