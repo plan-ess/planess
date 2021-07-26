@@ -35,7 +35,7 @@ export default class HCreate extends Component {
 					console.log("should be saving")
 					this.props.setHousehold(response);
 					// redirect to /projects
-					this.props.history.push('/LoggedFull');
+					this.props.history.push('/household');
 				}
 			})
 	}

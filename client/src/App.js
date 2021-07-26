@@ -1,14 +1,13 @@
 import './App.css';
 import React, { Component } from 'react';
-//import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 //import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
 import { Route } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import NavBar from './components/NavBar';
-import HCreate from './components/HCreate';
-import HJoin from './components/HJoin';
+import CreateHousehold from './components/CreateHousehold';
+import JoinHousehold from './components/JoinHousehold';
 
 class App extends React.Component {
 
@@ -35,7 +34,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <NavBar user={this.state.user}/>
+        <NavBar user={this.state.user} setUser={this.setUser}/>
+
         <Route
           exact path='/'
           render={props => <WelcomePage setUser={this.setUser} {...props}/>}
@@ -53,13 +53,13 @@ class App extends React.Component {
 
         <Route
           exact path="/signupHousehold"
-          render={props => <HCreate user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
+          render={props => <CreateHousehold user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
           />  
 
 
         <Route
           exact path='/loginHousehold'
-          render={props => <HJoin  user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
+          render={props => <JoinHousehold  user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
         /> 
 
 
