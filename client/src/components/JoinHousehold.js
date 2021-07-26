@@ -39,38 +39,33 @@ export default class JoinHousehold extends Component {
 	}
 
 	render() {
-		return (
-			<section className='formContainer'>
-				<h2>Log in</h2>
-				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="name">name: </label>
-					<input
-						type="text"
-						name="name"
-						value={this.state.name}
-						onChange={this.handleChange}
-					/>
-					<label htmlFor="email">email: </label>
-					<input
-						type="text"
-						name="email"
-						value={this.state.email}
-						onChange={this.handleChange}
-					/>
-					<label htmlFor="password">Password: </label>
-					<input
-						type="password"
-						name="password"
-						value={this.state.password}
-						onChange={this.handleChange}
-					/>
-					<button type="submit">Log in!</button>
-					{this.state.message && (
-						<h3>{this.state.message}</h3>
-					)}
-				</form>
-			</section>
-		)
-
+			return (
+				<section className="formContainer">
+					<h1>Hi {this.props.user.name} !!! </h1>					
+					<h1>Join an existing Household</h1>
+					
+					<form onSubmit={this.handleSubmit}>
+						<label htmlFor="username">Username: </label>
+						<input
+							type="text"
+							name="username"
+							value={this.state.username}
+							onChange={this.handleChange}
+						/>
+						<label htmlFor="pin">Set a 4-digit pin: </label>
+						<input
+							type="password"
+							name="pin"
+							value={this.state.password}
+							onChange={this.handleChange}
+						/>
+						<button type="submit">Sign up!</button>
+						{this.state.message && (
+							<h3>{this.state.message}</h3>
+						)}
+					</form>
+				</section>
+			)
+	
+		}
 	}
-}

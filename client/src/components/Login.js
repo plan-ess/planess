@@ -30,7 +30,14 @@ export default class Login extends Component {
 					})
 				} else {
 					this.props.setUser(response);
-					this.props.history.push('/household');
+					console.log(this.props.user,"im here");
+					if (!this.props.user.household){
+						this.props.history.push('/createOrJoinHousehold');
+					} else{
+						console.log("i am here, where there is a household, even tho false")
+						this.props.history.push('/household')
+					}
+
 				}
 			})
 	}

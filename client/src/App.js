@@ -10,6 +10,7 @@ import CreateHousehold from './components/CreateHousehold';
 import JoinHousehold from './components/JoinHousehold';
 import Household from './components/Household';
 import ItemDetails from './components/ItemDetails';
+import HCreateOrJoin from './components/CreateOrJoinHousehold';
 
 class App extends React.Component {
 
@@ -45,7 +46,7 @@ class App extends React.Component {
 
         <Route
           exact path="/login"
-          render={props => <Login setUser={this.setUser} {...props}/>}
+          render={props => <Login user={this.state.user} setUser={this.setUser} {...props}/>}
           />
 
         <Route
@@ -71,6 +72,12 @@ class App extends React.Component {
             else return <Redirect to='/' />
           }}
           />
+
+        <Route
+           exact path='/createOrJoinHousehold'
+           render = {props => <HCreateOrJoin/>}
+        />
+
 
           <Route 
             exact path='/household/items/:id'
