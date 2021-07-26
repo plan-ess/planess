@@ -36,7 +36,7 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
 	
-	const { name, email, password } = req.body;
+	const { email, password } = req.body;
 	User.findOne({ email: email })
 		.then(userFromDB => {
 			if (userFromDB === null) {

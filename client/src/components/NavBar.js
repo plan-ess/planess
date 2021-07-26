@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
     render() {
+        console.log('this are the props', this.props)
         return (
             <nav>
                 <div>
-                    <h3>Plan<span>Ess</span></h3>
+                    <Link to={this.props.user ? '/household' : '/'}><h3>Plan<span>Ess</span></h3></Link>
                 </div>
                 <ul>
                     <li><Link to='/signup' style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Sign up</h4></Link></li>

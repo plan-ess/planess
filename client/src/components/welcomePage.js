@@ -25,9 +25,8 @@ export default class WelcomePage extends Component {
                     </p>
 
                     <div className='authButtons'>
-                        <Link to="/signup" style={{textDecoration:'none'}}><h4>Sign up</h4></Link>
-                        <Link to="/login" style={{textDecoration:'none'}}><h4>Log in</h4></Link>
-
+                        {/* <Link to="/signup" style={{textDecoration:'none'}}><h4>Sign up</h4></Link>
+                        <Link to="/login" style={{textDecoration:'none'}}><h4>Log in</h4></Link> */}
                         <Link to='/' onClick={() => this.handleLogout()}>Logout</Link>
                     </div>
                 </div>

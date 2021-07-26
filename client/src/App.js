@@ -24,7 +24,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <NavBar/>
+        <NavBar user={this.state.user}/>
         <Route
           exact path='/'
           render={props => <WelcomePage setUser={this.setUser} {...props}/>}

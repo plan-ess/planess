@@ -35,7 +35,7 @@ export default class Signup extends Component {
 					// -> we want to add the user also in the state of App.js
 					this.props.setUser(response);
 					// redirect to /projects
-					this.props.history.push('/');
+					this.props.history.push('/household');
 				}
 			})
 	}
