@@ -1,13 +1,27 @@
 nav {
-    width: 97vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
-    background-color: rgb(159, 144, 173);
-    box-shadow: 1px 1px 3px black;
-    margin-bottom: 0.5px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #F9EFED;
+    margin-bottom: 0px;
 }
+.togetherFront{
+    display: flex;
+    font-size: 30px;
+
+}
+
+
+.logoinNav{
+    padding-top: 15px;
+    padding-left: 15px;
+    width: 7%;
+    height: 2%;
+}
+
 
 nav ul {
     width: 200px;

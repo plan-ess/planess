@@ -37,7 +37,6 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-	
 	const { email, password } = req.body;
 	User.findOne({ email: email })
 		.then(userFromDB => {
@@ -136,25 +135,35 @@ router.post('/signupHousehold', (req, res, next) => {
 });
 
 router.post('/loginHousehold', (req, res, next) => {
-	
-	const { name, username, pin } = req.body;
+	const {username, pin} = req.body;
 	Household.findOne({ username: username })
 		.then(loggedHousehold => {
-
+			console.log(loggedHousehold.pin, "this should be pin");
+			console.log(pin, "this should be pin")
 			if (loggedHousehold === null) {
-				return res.status(500).json({ message: 'Error while logging in' });
+				return res.status(500).json({ message: 'The home you are trying to log into does not exist' });
 			}
-			if (bcrypt.compareSync(pin, loggedHousehold.pin)) {
-				//req.session.user = userFromDB;
+			if (pin == loggedHousehold.pin) {
+				let members = loggedHousehold.members;
+				members.push(req.session.user._id);
+				Household.findByIdAndUpdate(loggedHousehold._id, {members: members})
+						.then(haustemp => {
+							console.log(haustemp);
+							let household = req.session.user.household;
+							household = haustemp._id;
+							User.findByIdAndUpdate(req.session.user._id, {household:household}, {new:true}) 
+							.then((final_user) => {
+								console.log(final_user)
+								return res.status(200).json(haustemp);
+							})
+						})
+				//let members = createdHousehold.members;
+				//members.push(req.session.user._id);
 				//return res.status(200).json(loggedHousehold);
-				let userNow = req.session.user._id;
-				User.findById(userNow)
-				.then(user =>{
-					user.household = loggedHousehold._id;
-					loggedHousehold.members.push(user._id);
-					return res.status(200).json(loggedHousehold)
-				})
-			} else {
+				}
+			else {
+				console.log(pin)
+				console.log("failed pass")
 				return res.status(500).json({ message: 'Error while logging in' });
 			}
 		})
