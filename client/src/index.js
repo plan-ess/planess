@@ -8,6 +8,8 @@ import axios from 'axios';
 
 // get the logged in user from the backend and pass it to App.js as 
 // a prop
+//NOTE:
+//we probably want to tell it if house has already been created
 axios.get('/api/auth/loggedin')
   .then(response => {
     console.log('logged in user: ', response.data);

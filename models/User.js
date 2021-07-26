@@ -11,6 +11,11 @@ const userSchema = new Schema({
   //   //-> Ideally, should be unique, but its up to you
   // },
   password: String,
+  checked: Boolean,
+  household: 
+  {type: Schema.Types.ObjectId,
+    ref: "Household",
+  }
 });
 
 const User = model("User", userSchema);

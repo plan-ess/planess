@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { signup } from '../services/auth';
-import './Signup.css';
+import { signupHousehold } from '../services/auth';
 
-export default class Signup extends Component {
+export default class HCreate extends Component {
 
 	state = {
-		email: '',
-        name: '',
-		password: '',
+		name: '',
+        username: '',
+		pin: '',
 		message: ''
 	}
 
@@ -20,22 +19,23 @@ export default class Signup extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const { name, email, password } = this.state;
-		signup(name, email, password)
+		const { name, username, pin } = this.state;
+		signupHousehold(name, username, pin)
 			.then(response => {
 				if (response.message) {
 					this.setState({
 						message: response.message,
 						name: '',
-                        email: '',
-						password: ''
+                        username: '',
+						pin: ''
 					})
 				} else {
 					// user is correctly signed up in the backend
 					// -> we want to add the user also in the state of App.js
-					this.props.setUser(response);
+					console.log("should be saving")
+					this.props.setHousehold(response);
 					// redirect to /projects
-					this.props.history.push('/signupHousehold');
+					this.props.history.push('/LoggedFull');
 				}
 			})
 	}
@@ -43,26 +43,28 @@ export default class Signup extends Component {
 	render() {
 		return (
 			<section className="formContainer">
-				<h1>Sign up</h1>
+				<h1>Hi {this.props.user.name} !!! </h1>
+				<h1>Create a Household</h1>
+				
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="name">Name: </label>
+					<label htmlFor="name">Name your home: </label>
 					<input
 						type="text"
 						name="name"
 						value={this.state.name}
 						onChange={this.handleChange}
 					/>
-                    <label htmlFor="email">Email: </label>
+                    <label htmlFor="username">Username: </label>
 					<input
 						type="text"
-						name="email"
-						value={this.state.email}
+						name="username"
+						value={this.state.username}
 						onChange={this.handleChange}
 					/>
-					<label htmlFor="password">Password: </label>
+					<label htmlFor="pin">Set a 4-digit pin: </label>
 					<input
 						type="password"
-						name="password"
+						name="pin"
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
