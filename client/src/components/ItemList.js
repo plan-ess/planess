@@ -13,11 +13,20 @@ export default class ItemList extends Component {
 			.catch(err => console.log(err))
 	}
 
+    
+
     render() {
+        const filtered = this.props.items.filter(item => {
+            return item.name.toLowerCase().includes(this.props.query.toLowerCase())
+        });
+
+        console.log(this.props.items, 'this are the items')
+        console.log(filtered, 'this are the items filtered')
+
         return (
             <div>
 			{this.props.items.length < 0 && <h2>You have no Items added in your Shopping list</h2>}
-			{this.props.items.map(item => {
+			{filtered.map(item => {
 				return (
 					<div key={item._id}>
 						<Link to={`/household/items/${item._id}`}><h3>{item.name}</h3></Link>
