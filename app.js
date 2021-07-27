@@ -50,6 +50,9 @@ app.use("/api/auth", auth);
 const items = require('./routes/items');
 app.use('/api/items', items);
 
+const household = require('./routes/household');
+app.use('/api/household', household)
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

@@ -26,7 +26,9 @@ export default class NavBar extends Component {
                         </div>
                         <ul>
                             <li><Link to='/' onClick={() => this.handleLogout()} style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Log out</h4></Link></li>
+                            <li><Link to='/profile'> See my profile ?? </Link></li>
                         </ul>
+                        
                     </nav>
                 ) : (
                     <nav>
