@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { loginHousehold } from '../services/auth';
 
-export default class HJoin extends Component {
+export default class JoinHousehold extends Component {
 
 	state = {
 		name: '',
@@ -33,7 +33,7 @@ export default class HJoin extends Component {
 				} else {
                     //aqui deberia funcionar... y poner household.members al user, y poner agregar el household al user.household
 					this.props.setHousehold(response);
-					this.props.history.push('/');
+					this.props.history.push('/household');
 				}
 			})
 	}

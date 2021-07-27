@@ -1,13 +1,15 @@
 import './App.css';
-import React, { Component } from 'react';
+import React from 'react';
 import Signup from './components/Signup';
 //import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import NavBar from './components/NavBar';
 import CreateHousehold from './components/CreateHousehold';
 import JoinHousehold from './components/JoinHousehold';
+import Household from './components/Household';
+import ItemDetails from './components/ItemDetails';
 import HCreateOrJoin from './components/CreateOrJoinHousehold';
 
 class App extends React.Component {
@@ -61,7 +63,15 @@ class App extends React.Component {
         <Route
           exact path='/loginHousehold'
           render={props => <JoinHousehold  user = {this.state.user} setUser={this.setUser} setHousehold={this.setHousehold} {...props}/>}
-        /> 
+        />
+
+        <Route
+          exact path='/household'
+          render={props => {
+            if (this.state.user) return <Household user= {this.state.user} {...props} />
+            else return <Redirect to='/' />
+          }}
+          />
 
         <Route
            exact path='/createOrJoinHousehold'
@@ -69,6 +79,13 @@ class App extends React.Component {
         />
 
 
+          <Route 
+            exact path='/household/items/:id'
+            render={props => {
+              if (this.state.user) return <ItemDetails user= {this.state.user} {...props} />
+              else return <Redirect to='/'/>
+            }}
+          />
 
         {/* This route is now protected */}
         {/* <Route

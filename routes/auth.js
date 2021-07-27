@@ -101,6 +101,7 @@ router.post('/signupHousehold', (req, res, next) => {
 							.then(final_user => {
 								console.log(final_user, "final user tag")
 								console.log(req.session.user, "session user tag")
+								req.session.user = final_user;
 								return res.status(200).json(haustemp);
 							})
 
@@ -154,6 +155,7 @@ router.post('/loginHousehold', (req, res, next) => {
 							User.findByIdAndUpdate(req.session.user._id, {household:household}, {new:true}) 
 							.then((final_user) => {
 								console.log(final_user)
+								req.session.user = final_user;
 								return res.status(200).json(haustemp);
 							})
 						})
