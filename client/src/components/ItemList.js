@@ -16,9 +16,18 @@ export default class ItemList extends Component {
     
 
     render() {
-        const filtered = this.props.items.filter(item => {
+        let filtered = this.props.items.filter(item => {
             return item.name.toLowerCase().includes(this.props.query.toLowerCase())
         });
+
+		if (this.props.urgent) {
+			filtered = filtered.filter(item => {
+				return item.urgent
+			})
+		}
+			
+		
+
 
         return (
             <div>

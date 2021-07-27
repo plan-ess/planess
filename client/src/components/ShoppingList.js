@@ -9,12 +9,19 @@ export default class ShoppingList extends Component {
     state = {
         items : [],
         addForm : false,
-        query:''
+        query:'',
+        urgent: false
     }
 
     setQuery = query => {
         this.setState({
             query: query
+        })
+    }
+
+    setUrgent = urgent => {
+        this.setState({
+            urgent: urgent
         })
     }
 
@@ -51,10 +58,12 @@ export default class ShoppingList extends Component {
 
                 <SearchBar 
                     query={this.state.query}
+                    urgent={this.state.urgent}
                     setQuery={this.setQuery}
+                    setUrgent={this.setUrgent}
                 />
 
-                <ItemList items={this.state.items} getItems={this.getItems} query={this.state.query}/>
+                <ItemList items={this.state.items} getItems={this.getItems} query={this.state.query} urgent={this.state.urgent}/>
             </>
         )
     }
