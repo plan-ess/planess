@@ -78,8 +78,23 @@ router.put('/:id', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
     Item.findByIdAndDelete(req.params.id)
-      .then(() => {
-        res.status(200).json({ message: 'item deleted' });
+      .then(deletedItem => {
+        Household.findById(req.session.user.household)
+            .then(household => {
+                let basket = household.basket;
+                basket.splice(basket.indexOf(deletedItem._id), 1);
+
+                Household.findByIdAndUpdate(household._id, {basket: basket})
+                    .then(() =>{
+                        res.status(200).json({ message: 'item deleted' });
+                    })
+                    .catch(err =>{
+                        next(err);
+                    })
+            })
+            .catch(err => {
+                next(err);
+            })
       })
       .catch(err => {
         next(err);
