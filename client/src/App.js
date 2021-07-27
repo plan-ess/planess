@@ -11,6 +11,7 @@ import JoinHousehold from './components/JoinHousehold';
 import Household from './components/Household';
 import ItemDetails from './components/ItemDetails';
 import HCreateOrJoin from './components/CreateOrJoinHousehold';
+import Profile from './components/Profile';
 
 class App extends React.Component {
 
@@ -30,8 +31,6 @@ class App extends React.Component {
       household: household
     })
   }
-
-
 
   render() {
 
@@ -85,7 +84,18 @@ class App extends React.Component {
               if (this.state.user) return <ItemDetails user= {this.state.user} {...props} />
               else return <Redirect to='/'/>
             }}
-          />
+            />
+            <Route 
+            exact path='/profile'
+            render={props => {
+              if (this.state.user) return <Profile user= {this.state.user} setUser = {this.setUser} household = {this.state.household} {...props} />
+              else return <Redirect to='/'/>
+            }}
+            />
+
+
+
+        
 
         {/* This route is now protected */}
         {/* <Route
