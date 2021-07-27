@@ -9,7 +9,7 @@ const itemSchema = new Schema({
     type: Date,
     default: new Date
   },
-  completed: {
+  urgent: {
     type: Boolean,
     default: false
   },

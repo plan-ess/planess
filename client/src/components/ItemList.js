@@ -20,9 +20,6 @@ export default class ItemList extends Component {
             return item.name.toLowerCase().includes(this.props.query.toLowerCase())
         });
 
-        console.log(this.props.items, 'this are the items')
-        console.log(filtered, 'this are the items filtered')
-
         return (
             <div>
 			{this.props.items.length < 0 && <h2>You have no Items added in your Shopping list</h2>}
@@ -33,6 +30,7 @@ export default class ItemList extends Component {
                         <p>{item.quantity} {item.quantityType}</p>
                         <p>Added by: {item.addedBy}</p>
                         <p>{item.addedAt.slice(0,10)}</p>
+                        {item.urgent ? <p><b>URGENT!</b></p> : <></>}
 
                         <button onClick={() => this.deleteItem(item._id)}>Delete</button>
                         
