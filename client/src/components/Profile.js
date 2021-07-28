@@ -5,8 +5,8 @@ import EditProfile from './EditProfile';
 export default class Profile extends Component {
 
     state = {
-        name:'',
-        email:'',
+        name:this.props.user.name,
+        email:this.props.user.email,
         user: this.props.user,
         household: null,
         editForm: false,
@@ -26,26 +26,28 @@ export default class Profile extends Component {
         })
     }
 
-
-    componentDidMount() {
-        this.getHousehold();
-    }
-
-    // componentDidUpdate(prevProps, prevState){
-    //     if (prevState.user !== this.state.user){
-    //         this.fetchData(this.props.user)
-    //     }   
-    // }
-     //sadness
-
     getHousehold = () => {
         axios.get('/api/household')
         .then(response => {
-            console.log(response.data, "alan's attempt");
             this.setState({
                 household: response.data
             })
         })
+    }
+
+    getUser = () => {
+        axios.get('/api/household/user')
+            .then(response => {
+                this.setState({
+                    user: response.data
+                })
+            })
+    }
+
+
+    componentDidMount() {
+        this.getUser();
+        this.getHousehold();
     }
 
     handleSubmit = e => {
@@ -53,16 +55,17 @@ export default class Profile extends Component {
         const { name, email} = this.state;
         axios.put(`/api/household/profile`, {
             name,
-            email,
-            //password one day
+            email
         })
             .then(response => {
+                console.log(response.data)
                 this.setState({
                     name: response.data.name,
                     email: response.data.email,
                     editForm: false
                 })
                 this.props.setUser(response.data)
+                this.getUser();
             })
             .catch(err => {
                 console.log(err);
@@ -71,10 +74,9 @@ export default class Profile extends Component {
     }
 
     render() {
-        console.log(this.state.household, ":(")
 
 
-        if (!this.state.household) return <> </> //pesadez
+        if (!this.state.household) return <> </>
         return (
             <>
               <h1>Welcome to {this.state.household.name}</h1>

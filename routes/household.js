@@ -25,5 +25,16 @@ router.put('/profile', (req, res, next) => {
         })
 })
 
+router.get('/user', (req, res, next) => {
+    User.findById(req.session.user._id)
+        .then(user => {
+            res.status(200).json(user)
+        })
+
+        .catch(err => {
+            next(err)
+        })
+})
+
 
 module.exports = router;

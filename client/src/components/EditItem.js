@@ -24,7 +24,15 @@ export default class EditItem extends Component {
                 <input
                     type='text'
                     name='quantityType'
-                    value={this.props.quantityType}
+                    value={this.props.quantityType || false} 
+                    onChange={this.props.handleChange}
+                />
+                
+                <label htmlFor='urgent'>Is it urgent?:</label>
+                <input
+                    type='checkbox'
+                    name='urgent'
+                    checked={this.props.urgent}
                     onChange={this.props.handleChange}
                 />
 

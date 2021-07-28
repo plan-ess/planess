@@ -2,12 +2,27 @@ import React, { Component } from 'react';
 import AddItem from './AddItem';
 import axios from 'axios';
 import ItemList from './ItemList';
+import SearchBar from './SearchBar';
 
 export default class ShoppingList extends Component {
 
     state = {
         items : [],
-        addForm : false
+        addForm : false,
+        query:'',
+        urgent: false
+    }
+
+    setQuery = query => {
+        this.setState({
+            query: query
+        })
+    }
+
+    setUrgent = urgent => {
+        this.setState({
+            urgent: urgent
+        })
     }
 
     toggleAddForm = () => {
@@ -33,13 +48,22 @@ export default class ShoppingList extends Component {
         return (
             <>
                 <h3>Shopping List:</h3>
+
                 <button onClick={this.toggleAddForm}>Add Item</button>
                         {this.state.addForm ? (
                             <AddItem user={this.props.user} getItems={this.getItems}/>
                         ) : (
                             <></>
                         )}
-                <ItemList items={this.state.items} getItems={this.getItems}/>
+
+                <SearchBar 
+                    query={this.state.query}
+                    urgent={this.state.urgent}
+                    setQuery={this.setQuery}
+                    setUrgent={this.setUrgent}
+                />
+
+                <ItemList items={this.state.items} getItems={this.getItems} query={this.state.query} urgent={this.state.urgent}/>
             </>
         )
     }

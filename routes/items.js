@@ -30,12 +30,13 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post("/", (req, res, next) => {
-    const {name, quantity, quantityType, addedBy} = req.body;
+    const {name, quantity, quantityType, addedBy, urgent} = req.body;
     Item.create({
         name,
         quantity,
         quantityType,
-        addedBy
+        addedBy,
+        urgent
     })
         .then(item => {
             Household.findById(req.session.user.household)
@@ -65,8 +66,8 @@ router.post("/", (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-    const {name, quantity, quantityType} = req.body;
-    Item.findByIdAndUpdate(req.params.id, { name, quantity, quantityType }, {new: true})
+    const {name, quantity, quantityType, urgent} = req.body;
+    Item.findByIdAndUpdate(req.params.id, { name, quantity, quantityType, urgent }, {new: true})
         .then(item => {
             res.status(200).json(item);
         })
@@ -78,8 +79,23 @@ router.put('/:id', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
     Item.findByIdAndDelete(req.params.id)
-      .then(() => {
-        res.status(200).json({ message: 'item deleted' });
+      .then(deletedItem => {
+        Household.findById(req.session.user.household)
+            .then(household => {
+                let basket = household.basket;
+                basket.splice(basket.indexOf(deletedItem._id), 1);
+
+                Household.findByIdAndUpdate(household._id, {basket: basket})
+                    .then(() =>{
+                        res.status(200).json({ message: 'item deleted' });
+                    })
+                    .catch(err =>{
+                        next(err);
+                    })
+            })
+            .catch(err => {
+                next(err);
+            })
       })
       .catch(err => {
         next(err);

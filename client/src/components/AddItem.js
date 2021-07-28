@@ -8,27 +8,25 @@ export default class AddItem extends Component {
         name : '',
         quantity : '',
         quantityType : '',
-        addedBy : ''
+        addedBy : '',
+        urgent : false
     }
 
     handleChange = e => {
-        const { name, value } = e.target;
-
+        const name = e.target.name;
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         this.setState({
-            [name] : value
+          [name]: value
         })
-    }
+      }
 
     handleSubmit = e => {
 		e.preventDefault();
-		const { name, quantity, quantityType} = this.state;
+		const { name, quantity, quantityType, urgent} = this.state;
         const addedBy = this.props.user.name
 
-        console.log(addedBy)
-
-		itemCreate(name, quantity, quantityType, addedBy)
+		itemCreate(name, quantity, quantityType, addedBy, urgent)
 			.then(response => {
-                    console.log(response)
                     this.setState({
                         name:'',
                         quantity:'',
@@ -63,6 +61,14 @@ export default class AddItem extends Component {
                     type='text'
                     name='quantityType'
                     value={this.state.quantityType}
+                    onChange={this.handleChange}
+                />
+                
+                <label htmlFor='urgent'>Is it urgent?:</label>
+                <input
+                    type='checkbox'
+                    name='urgent'
+                    value={this.state.urgent}
                     onChange={this.handleChange}
                 />
 

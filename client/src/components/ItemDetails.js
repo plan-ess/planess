@@ -9,20 +9,21 @@ export default class ItemDetails extends Component {
         name:'',
         quantity:'',
         quantityType:'',
+        urgent: false,
         editForm: false,
         error: null
     }
 
     getItem = () => {
         const id = this.props.match.params.id;
-        console.log(this.props.match.params.id)
         axios.get(`/api/items/${id}`)
             .then(response => {
                 this.setState({
                     item: response.data,
                     name: response.data.name,
                     quantity: response.data.quantity,
-                    quantityType: response.data.quantityType
+                    quantityType: response.data.quantityType,
+                    urgent: response.data.urgent
                 })
 
             })
@@ -55,19 +56,21 @@ export default class ItemDetails extends Component {
     }
 
     handleChange = e => {
-        const { name, value } = e.target;
+        const name = e.target.name;
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         this.setState({
-            [name]: value
+          [name]: value
         })
-    }
+      }
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name, quantity, quantityType } = this.state;
+        const { name, quantity, quantityType, urgent } = this.state;
         axios.put(`/api/items/${this.state.item._id}`, {
             name,
             quantity,
-            quantityType
+            quantityType,
+            urgent
         })
             .then(response => {
                 this.setState({
@@ -75,6 +78,7 @@ export default class ItemDetails extends Component {
                     name: response.data.name,
                     quantity: response.data.quantity,
                     quantityType: response.data.quantityType,
+                    urgent: response.data.urgent,
                     editForm: false
                 })
             })
@@ -93,6 +97,7 @@ export default class ItemDetails extends Component {
               <h3>Item: {this.state.item.name}</h3>  
               <h3>Quantity: {this.state.item.quantity} {this.state.item.quantityType}</h3>
               <h3>Added by: {this.state.item.addedBy} in {this.state.item.addedAt.slice(0,10)}</h3>
+              {this.state.urgent ? <h3>URGENT!</h3> : <></>}
 
               <button onClick={this.deleteItem}>Delete</button>
               <button onClick={this.toggleEditForm}>Edit</button>

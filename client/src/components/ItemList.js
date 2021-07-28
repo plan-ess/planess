@@ -13,17 +13,33 @@ export default class ItemList extends Component {
 			.catch(err => console.log(err))
 	}
 
+    
+
     render() {
+        let filtered = this.props.items.filter(item => {
+            return item.name.toLowerCase().includes(this.props.query.toLowerCase())
+        });
+
+		if (this.props.urgent) {
+			filtered = filtered.filter(item => {
+				return item.urgent
+			})
+		}
+			
+		
+
+
         return (
             <div>
 			{this.props.items.length < 0 && <h2>You have no Items added in your Shopping list</h2>}
-			{this.props.items.map(item => {
+			{filtered.map(item => {
 				return (
 					<div key={item._id}>
 						<Link to={`/household/items/${item._id}`}><h3>{item.name}</h3></Link>
                         <p>{item.quantity} {item.quantityType}</p>
                         <p>Added by: {item.addedBy}</p>
                         <p>{item.addedAt.slice(0,10)}</p>
+                        {item.urgent ? <p><b>URGENT!</b></p> : <></>}
 
                         <button onClick={() => this.deleteItem(item._id)}>Delete</button>
                         

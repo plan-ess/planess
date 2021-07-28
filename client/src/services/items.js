@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const itemCreate = (name, quantity, quantityType, addedBy) => {
-	return axios.post('/api/items/', {name, quantity, quantityType, addedBy})
+const itemCreate = (name, quantity, quantityType, addedBy, urgent) => {
+	return axios.post('/api/items/', {name, quantity, quantityType, addedBy, urgent})
 		.then(response => {
 			return response.data
 		})
