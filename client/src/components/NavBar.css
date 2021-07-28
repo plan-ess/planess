@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+
+
 nav {
+    font-family: 'Amatic SC', cursive;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding-left: 40px;
     padding-right: 40px;
@@ -9,10 +14,11 @@ nav {
     margin-bottom: 0px;
 }
 .togetherFront{
+    font-family: 'Amatic SC', cursive;
     display: flex;
     font-size: 30px;
-
 }
+
 
 
 .logoinNav{
@@ -21,6 +27,8 @@ nav {
     width: 7%;
     height: 2%;
 }
+
+
 
 
 nav ul {
@@ -34,10 +42,6 @@ nav li {
 }
 
 nav h3 {
-    color: rgb(236, 217, 238);
-    text-shadow: 1px 1px 3px black;
+    font-size: 60px;
 }
 
-span {
-    color: rgb(216, 101, 101);
-}

@@ -1,4 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gowun+Dodum&family=Work+Sans:wght@200&display=swap");
+
+
 body {
+    /* font-family: 'Gowun Batang', serif; */
     margin: 0;
     padding: 0;
     background-color: #f9efed;
@@ -8,6 +12,8 @@ body {
 .mainDiv{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+
 }
 
 .backgroundImage{
@@ -28,6 +34,7 @@ body {
 
 
 .banner {
+    font-family: 'Amatic SC', cursive;    
     height: 60vw;
     display: flex;
     justify-content: center;
@@ -36,8 +43,18 @@ body {
 
     font-size: 40px;
     text-align: right;
-
 }
+
+ 
+
+.banner h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 80px;
+}
+
+.banner h2{
+    font-size: 30px;
+    font-family: 'Work Sans', sans-serif;}
 
 .logoAndWord{
     display:flex;
@@ -56,12 +73,53 @@ body {
 
 }
 
+button {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    font-family: 'Amatic SC', cursive;    
+    font-size: 60px;
+    text-align: right;
+  }
+  
+  button:hover {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+  }
+  
+  button:active {
+    outline: none;
+    border: none;
+  }
+  
+  button:focus {
+    outline: 0;
+  }
+
+.hoverfun:hover span{
+    display: none;
+}
+
+.hoverfun:hover:after{
+    content: " ☑️";
+}
+
 h4 {
-    color: rgb(236, 217, 238);
+    text-align: center;
+    width: 100px;
+    font-family: "Amatic SC", cursive;
+    font-size: 30px;
+    border-radius: 30px;
+    color: #e54066;
     padding: 10px;
     margin: 0 15px;
-    background-color: rgb(216, 101, 101);
-    text-shadow: 1px 1px 3px black;
-    box-shadow: 1px 1px 4px black;
+    background-color: #ffe592;
+}
+
+h4:hover{
+    background-color: #E5b3f2;
 }
 

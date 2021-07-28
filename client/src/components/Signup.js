@@ -43,7 +43,7 @@ export default class Signup extends Component {
 	render() {
 		return (
 			<section className="formContainer">
-				<h1>Sign up</h1>
+				<p className="fontFix"> Did you know around <span>98.2%</span> of households' worldwide forget one item per shopping session? </p>
 				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="name">Name: </label>
 					<input
