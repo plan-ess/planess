@@ -20,9 +20,7 @@ export default class NavBar extends Component {
                 {this.props.user ? (
                     <nav>
                         <div className= "togetherFront">
-                            <Link to='/household'><h3>Plan<span>Ess</span></h3></Link>
-                            <img className= "logoinNav" src =  {logo}></img>
-
+                            <Link to='/household'><h3>PlanEss</h3></Link>
                         </div>
                         <ul>
                             <li><Link to='/' onClick={() => this.handleLogout()} style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Log out</h4></Link></li>
@@ -33,13 +31,12 @@ export default class NavBar extends Component {
                 ) : (
                     <nav>
                         <div className= "togetherFront" >
-                            <Link to='/'><h3>Plan<span>Ess</span></h3></Link>
-                            <img className= "logoinNav" src =  {logo}></img>
+                            <Link to='/'><h3>PlanEss</h3></Link>
 
                         </div>
                         <ul>
-                            <li><Link to='/signup' style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Sign up</h4></Link></li>
-                            <li><Link to='/login' style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Log in</h4></Link></li>
+                            <li><Link to='/signup' style={{textDecoration:'none'}}><h4 ClassName="authbutton2"> Sign up</h4></Link></li>
+                            <li><Link to='/login' style={{textDecoration:'none'}}><h4 ClassName="authbutton2">Log in</h4></Link></li>
                         </ul>
                     </nav>
                 )}

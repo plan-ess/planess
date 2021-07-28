@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './WelcomePage.css';
+import { Link } from 'react-router-dom';
+
 import background from '../images/background.gif';
 
 export default class WelcomePage extends Component {
@@ -15,14 +17,10 @@ export default class WelcomePage extends Component {
                 <div className='introBox'>
                     <div className='banner'>
                         <h1>PlanEss</h1>
-                        <h2>This is the tagline</h2>
+                        <h2> planning your pantry should not be hard</h2>
+                        <button className = "signUpUnder"> <Link to="signup"> <span className= "hoverfun"> Start planning Now</span> </Link></button>
                     </div>
                 </div>
-                </div>
-                <div className='intro'>
-                    <p>
-                        This is the intro of the app
-                    </p>
                 </div>
             </section>
         )
