@@ -50,9 +50,11 @@ body {
 .banner h1{
     font-family: 'Amatic SC', cursive;
     font-size: 80px;
+    color: #362752
 }
 
 .banner h2{
+    color: #362752;
     font-size: 30px;
     font-family: 'Work Sans', sans-serif;}
 

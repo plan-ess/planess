@@ -23,8 +23,8 @@ export default class NavBar extends Component {
                             <Link to='/household'><h3>PlanEss</h3></Link>
                         </div>
                         <ul>
+                            <li><Link to='/profile'> <h4>Profile</h4>  </Link></li>
                             <li><Link to='/' onClick={() => this.handleLogout()} style={{textDecoration:'none', color:'rgb(236, 217, 238)'}}><h4>Log out</h4></Link></li>
-                            <li><Link to='/profile'> See my profile ?? </Link></li>
                         </ul>
                         
                     </nav>

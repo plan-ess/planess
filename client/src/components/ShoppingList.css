@@ -1,0 +1,14 @@
+.title{
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+    color: #362752
+}
+.mainShoppingList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.secondSLdivision{
+    margin-left: 150px;
+}
