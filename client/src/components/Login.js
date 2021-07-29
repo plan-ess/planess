@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { login } from '../services/auth';
+import loginImg from '../images/login-img.jpeg';
+
 
 export default class Login extends Component {
 
@@ -45,27 +47,43 @@ export default class Login extends Component {
 	render() {
 		return (
 			<section className='formContainer'>
-				<h2>Log in</h2>
-				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="email">email: </label>
-					<input
-						type="text"
-						name="email"
-						value={this.state.email}
-						onChange={this.handleChange}
-					/>
-					<label htmlFor="password">Password: </label>
-					<input
-						type="password"
-						name="password"
-						value={this.state.password}
-						onChange={this.handleChange}
-					/>
-					<button type="submit">Log in!</button>
-					{this.state.message && (
-						<h3>{this.state.message}</h3>
-					)}
-				</form>
+				<p className="fontFix"> Welcome Back! Remember that you can share your Household with more people, to help you never forget any item in your shopping session!</p>
+
+				<div className="mainLayoutForm">
+					<div className = "rightLayout">
+						<img src={loginImg} alt='login-img'></img>
+					</div>
+					<form className= "formToEdit" onSubmit={this.handleSubmit}>
+
+						<div className="formBox">
+							<label htmlFor="email">Email: </label>
+							<input
+								className="inputEdit"
+								type="text"
+								name="email"
+								value={this.state.email}
+								onChange={this.handleChange}
+							/>
+						</div>
+
+						<div className="formBox">
+							<label htmlFor="password">Password: </label>
+							<input
+								className="inputEdit"
+								type="password"
+								name="password"
+								value={this.state.password}
+								onChange={this.handleChange}
+							/>
+						</div>
+
+						<button type="submit">Log in!</button>
+						{this.state.message && (
+							<h3>{this.state.message}</h3>
+						)}
+					</form>
+					
+				</div>
 			</section>
 		)
 

@@ -43,31 +43,39 @@ export default class CreateHousehold extends Component {
 	render() {
 		return (
 			<section className="formContainer">
-				<h1>Hi {this.props.user.name} !!! </h1>
-				<h1>Create a Household</h1>
+				<p className="fontFix"> Welcome, {this.props.user.name}! In order to Create a Household, you need to give it a NAME, set a USERNAME and PIN for it, so you can share it with your Roommates</p>
 				
-				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="name">Name your home: </label>
-					<input
-						type="text"
-						name="name"
-						value={this.state.name}
-						onChange={this.handleChange}
-					/>
-                    <label htmlFor="username">Username: </label>
-					<input
-						type="text"
-						name="username"
-						value={this.state.username}
-						onChange={this.handleChange}
-					/>
-					<label htmlFor="pin">Set a 4-digit pin: </label>
-					<input
-						type="password"
-						name="pin"
-						value={this.state.password}
-						onChange={this.handleChange}
-					/>
+				<form className='formToEdit' onSubmit={this.handleSubmit}>
+					<div className="formBox">
+						<label htmlFor="name">Name your Household: </label>
+						<input
+							type="text"
+							name="name"
+							value={this.state.name}
+							onChange={this.handleChange}
+						/>
+					</div>
+
+					<div className="formBox">
+						<label htmlFor="username">Username: </label>
+						<input
+							type="text"
+							name="username"
+							value={this.state.username}
+							onChange={this.handleChange}
+						/>
+					</div>
+
+					<div className="formBox">
+						<label htmlFor="pin">Set a 4-digit pin: </label>
+						<input
+							type="password"
+							name="pin"
+							value={this.state.password}
+							onChange={this.handleChange}
+						/>
+					</div>
+					
 					<button type="submit">Sign up!</button>
 					{this.state.message && (
 						<h3>{this.state.message}</h3>

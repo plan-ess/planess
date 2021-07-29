@@ -49,25 +49,25 @@ export default class ShoppingList extends Component {
         return (
             <>
                 <h3 className="title"> Shopping List:</h3>
-                <div className="mainShoppingList">
-                <div className="firstSLdivision">
-                <button onClick={this.toggleAddForm}>Add Item</button>
-                        {this.state.addForm ? (
-                            <AddItem user={this.props.user} getItems={this.getItems}/>
-                        ) : (
-                            <></>
-                        )}
 
-                <SearchBar 
-                    query={this.state.query}
-                    urgent={this.state.urgent}
-                    setQuery={this.setQuery}
-                    setUrgent={this.setUrgent}
-                />
-                </div>
-                <div className = "secondSLdivision">
-                <ItemList items={this.state.items} getItems={this.getItems} query={this.state.query} urgent={this.state.urgent}/>
-                </div>
+                <div className="mainShoppingList">
+                    <div className="firstSLdivision">
+                        <button className='addItem' onClick={this.toggleAddForm}>Add Item</button>
+                                {this.state.addForm ? (
+                                    <AddItem user={this.props.user} getItems={this.getItems}/>
+                                ) : (
+                                    <></>
+                                )}
+                    </div>
+                    <div className = "secondSLdivision">
+                        <SearchBar 
+                            query={this.state.query}
+                            urgent={this.state.urgent}
+                            setQuery={this.setQuery}
+                            setUrgent={this.setUrgent}
+                        />
+                        <ItemList items={this.state.items} getItems={this.getItems} query={this.state.query} urgent={this.state.urgent}/>
+                    </div>
                 </div>
             </>
         )

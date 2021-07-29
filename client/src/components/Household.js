@@ -8,8 +8,8 @@ export default class Household extends Component {
         return (
             <>
                 <div className = "householdPage">
-                <h1 className="Intro">Hello, {this.props.user.name}!</h1>
-                <ShoppingList user= {this.props.user} />
+                    <h1 className="intro">Hello, {this.props.user.name}!</h1>
+                    <ShoppingList user= {this.props.user} />
                 </div>
             </>
         )

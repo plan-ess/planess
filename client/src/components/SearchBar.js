@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './SearchBar.css'
 
 export default class SearchBar extends Component {
 
@@ -13,7 +14,7 @@ export default class SearchBar extends Component {
 
     render() {
         return (
-            <>
+            <div className='searchContainer'>
                 <input
                     type='text'
                     value={this.props.query}
@@ -27,7 +28,7 @@ export default class SearchBar extends Component {
                     checked={this.props.urgent}
                     onChange={this.handleChange}
                 />
-            </>
+            </div>
         )
     }
 }

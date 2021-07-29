@@ -47,7 +47,7 @@ export default class ItemList extends Component {
                         {item.urgent ? <p><b>URGENT!</b></p> : <></>}
 						</div>
 
-                        <button onClick={() => this.deleteItem(item._id)}>Delete</button>
+                        <button className='delete' onClick={() => this.deleteItem(item._id)}>X</button>
                         
 					</div>
 				)

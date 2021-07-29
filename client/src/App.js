@@ -40,11 +40,7 @@ class App extends React.Component {
 
         <Route
           exact path='/'
-          // render={props => <WelcomePage setUser={this.setUser} {...props}/>}
-          render={props => {
-            if (!this.state.user) return <WelcomePage setUser={this.setUser} {...props}/>
-            else return <Redirect to='/household'/>
-          }}
+          render={props => <WelcomePage setUser={this.setUser} {...props}/>}
         />
 
         <Route

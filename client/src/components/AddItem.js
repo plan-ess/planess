@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { itemCreate } from '../services/items';
+import './AddItem.css';
 
 
 export default class AddItem extends Component {
@@ -39,40 +40,48 @@ export default class AddItem extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor='name'>Name:</label>
-                <input
-                    type='text'
-                    name='name'
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                />
+            <form className='formToEdit addForm' onSubmit={this.handleSubmit}>
+                <div className="formBox">
+                    <label htmlFor='name'>Name:</label>
+                    <input
+                        type='text'
+                        name='name'
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                    />
+                </div>
 
-                <label htmlFor='quantity'>Quantity:</label>
-                <input
-                    type='number'
-                    name='quantity'
-                    value={this.state.quantity}
-                    onChange={this.handleChange}
-                />
+                <div className="formBox">
+                    <label htmlFor='quantity'>Quantity:</label>
+                    <input
+                        type='number'
+                        name='quantity'
+                        value={this.state.quantity}
+                        onChange={this.handleChange}
+                    />
+                </div>
 
-                <label htmlFor='quantityType'>Quantity Type:</label>
-                <input
-                    type='text'
-                    name='quantityType'
-                    value={this.state.quantityType}
-                    onChange={this.handleChange}
-                />
-                
-                <label htmlFor='urgent'>Is it urgent?:</label>
-                <input
-                    type='checkbox'
-                    name='urgent'
-                    value={this.state.urgent}
-                    onChange={this.handleChange}
-                />
+                <div className="formBox">
+                    <label htmlFor='quantityType'>Quantity Type:</label>
+                    <input
+                        type='text'
+                        name='quantityType'
+                        value={this.state.quantityType}
+                        onChange={this.handleChange}
+                    />
+                </div>
 
-                <button type='submit'>Add</button>
+                <div className="formBox">
+                    <label htmlFor='urgent'>Is it urgent?:</label>
+                    <input
+                        type='checkbox'
+                        name='urgent'
+                        value={this.state.urgent}
+                        onChange={this.handleChange}
+                    />
+                </div>
+
+                <button className='submitBttn' type='submit'>Add</button>
             </form>
         )
     }

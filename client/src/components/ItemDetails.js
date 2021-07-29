@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import EditItem from './EditItem';
+import './ItemDetails.css';
 
 export default class ItemDetails extends Component {
 
@@ -93,14 +94,18 @@ export default class ItemDetails extends Component {
         if (this.state.error) return <h2>{this.state.error}</h2>
         if (!this.state.item) return <></>
         return (
-            <>
-              <h3>Item: {this.state.item.name}</h3>  
-              <h3>Quantity: {this.state.item.quantity} {this.state.item.quantityType}</h3>
-              <h3>Added by: {this.state.item.addedBy} in {this.state.item.addedAt.slice(0,10)}</h3>
-              {this.state.urgent ? <h3>URGENT!</h3> : <></>}
+            <section className='formToEdit profileSection'>
+              <div className='itemDetails'>
+                <h3>Item:  {this.state.item.name}</h3>  
+                <h3>Quantity:  {this.state.item.quantity} {this.state.item.quantityType}</h3>
+                <h3>Added by:  {this.state.item.addedBy} in {this.state.item.addedAt.slice(0,10)}</h3>
+                {this.state.urgent ? <h3>URGENT!</h3> : <></>}
+              </div>
 
-              <button onClick={this.deleteItem}>Delete</button>
-              <button onClick={this.toggleEditForm}>Edit</button>
+              <div>
+                <button className='delete' onClick={this.deleteItem}>X</button>
+                <button className='editBttn' onClick={this.toggleEditForm}>Edit</button>
+              </div>
 
               {this.state.editForm && (
                   <EditItem 
@@ -109,7 +114,7 @@ export default class ItemDetails extends Component {
                     handleChange={this.handleChange}
                   />
               )}
-            </>
+            </section>
         )
     }
 }

@@ -1,5 +1,5 @@
-h1 .intro{
-    font-size: 100px;
+.intro{
+    font-size: 50px;
 }
 .householdPage{
     display: flex;

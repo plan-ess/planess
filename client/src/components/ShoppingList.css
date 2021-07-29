@@ -11,4 +11,12 @@
 
 .secondSLdivision{
     margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addItem {
+    font-size: 30px;
 }

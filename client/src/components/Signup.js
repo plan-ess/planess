@@ -44,7 +44,7 @@ export default class Signup extends Component {
 	render() {
 		return (
 			<section className="formContainer">
-				<p className="fontFix"> Did you know around <span>98.2%</span> of households' worldwide forget one item per shopping session? </p>
+				<p className="fontFix"> Did you know around <span>98.2%</span> of households' worldwide forget at least one item per shopping session? </p>
 
 				<div className="mainLayoutForm">
 				
