@@ -38,7 +38,7 @@ export default class ItemList extends Component {
 			{filtered.map(item => {
 				return (
 					<div className="listItem" key={item._id}>
-						<img className="listIcon" src={Apple}></img>
+						<img className="listIcon" src={Apple} alt='apple'></img>
 						<div>
 						<Link to={`/household/items/${item._id}`}><h3>{item.name}</h3></Link>
                         <p>{item.quantity} {item.quantityType}</p>

@@ -85,7 +85,7 @@ export default class Signup extends Component {
 					)}
 				</form>
 				<div className = "rightLayout">
-				<img src={stressedImage}></img>
+				<img src={stressedImage} alt='stressed-img'></img>
 				</div>
 				</div>
 			</section>
