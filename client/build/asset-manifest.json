@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.53b32f17.chunk.css",
+    "main.js": "/static/js/main.a3293a1f.chunk.js",
+    "main.js.map": "/static/js/main.a3293a1f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.32479984.js",
+    "runtime-main.js.map": "/static/js/runtime-main.32479984.js.map",
+    "static/js/2.185a86c0.chunk.js": "/static/js/2.185a86c0.chunk.js",
+    "static/js/2.185a86c0.chunk.js.map": "/static/js/2.185a86c0.chunk.js.map",
+    "static/js/3.cac6f47a.chunk.js": "/static/js/3.cac6f47a.chunk.js",
+    "static/js/3.cac6f47a.chunk.js.map": "/static/js/3.cac6f47a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.53b32f17.chunk.css.map": "/static/css/main.53b32f17.chunk.css.map",
+    "static/js/2.185a86c0.chunk.js.LICENSE.txt": "/static/js/2.185a86c0.chunk.js.LICENSE.txt",
+    "static/media/background.70d3c97c.gif": "/static/media/background.70d3c97c.gif",
+    "static/media/logo-planess.15729d6d.png": "/static/media/logo-planess.15729d6d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32479984.js",
+    "static/js/2.185a86c0.chunk.js",
+    "static/css/main.53b32f17.chunk.css",
+    "static/js/main.a3293a1f.chunk.js"
+  ]
+}

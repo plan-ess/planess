@@ -21,6 +21,9 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const DB_URL = 'mongodb://localhost/projector';
 
+//just added
+
+const path = require('path');
 
 app.use(
 	session({
@@ -33,6 +36,8 @@ app.use(
 		})
 	})
 )
+
+
 
 // end of session configuration
 
@@ -53,8 +58,20 @@ app.use('/api/items', items);
 const household = require('./routes/household');
 app.use('/api/household', household)
 
+//now added
+
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.use((req, res) => {
+	// If no routes match, send them the React HTML.
+	res.sendFile(__dirname + "/client/build/index.html");
+  });
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
+
+
+
 
 module.exports = app;
