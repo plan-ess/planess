@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import {logout} from '../services/auth';
-import logo from '../images/logo-planess.png';
-
 
 export default class NavBar extends Component {
 
@@ -35,8 +33,8 @@ export default class NavBar extends Component {
 
                         </div>
                         <ul>
-                            <li><Link to='/signup' style={{textDecoration:'none'}}><h4 ClassName="authbutton2"> Sign up</h4></Link></li>
-                            <li><Link to='/login' style={{textDecoration:'none'}}><h4 ClassName="authbutton2">Log in</h4></Link></li>
+                            <li><Link to='/signup' style={{textDecoration:'none'}}><h4 className="authbutton2"> Sign up</h4></Link></li>
+                            <li><Link to='/login' style={{textDecoration:'none'}}><h4 className="authbutton2">Log in</h4></Link></li>
                         </ul>
                     </nav>
                 )}
