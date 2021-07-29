@@ -12,7 +12,7 @@ export default class WelcomePage extends Component {
             <section>
                 <div className="mainDiv">
                 <div className="backgroundImage">
-                    <img src={background}></img>
+                    <img src={background} alt='background-img'></img>
                 </div>
                 <div className='introBox'>
                     <div className='banner'>
