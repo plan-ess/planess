@@ -41,7 +41,7 @@ export default class JoinHousehold extends Component {
 	render() {
 			return (
 				<section className="formContainer">
-					<p className="fontFix"> Welcome, {this.props.user.name}! In order to JOIN an existing Household, you need to digit its USERNAME and PIN</p>
+					<p className="fontFix"> Welcome, {this.props.user.name}! In order to join an existing Household, please enter the home’s username and pin</p>
 
 					<form className='formToEdit' onSubmit={this.handleSubmit}>
 						<div className="formBox">

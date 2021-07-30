@@ -47,7 +47,7 @@ export default class Login extends Component {
 	render() {
 		return (
 			<section className='formContainer'>
-				<p className="fontFix"> Welcome Back! Remember that you can share your Household with more people, to help you never forget any item in your shopping session!</p>
+				<p className="fontFix"> Welcome Back! Remember that you can share your grocery list with everybody at home. The days of forgetting toilet paper are over</p>
 
 				<div className="mainLayoutForm">
 					<div className = "rightLayout">

@@ -43,7 +43,7 @@ export default class CreateHousehold extends Component {
 	render() {
 		return (
 			<section className="formContainer">
-				<p className="fontFix"> Welcome, {this.props.user.name}! In order to Create a Household, you need to give it a NAME, set a USERNAME and PIN for it, so you can share it with your Roommates</p>
+				<p className="fontFix"> Welcome, {this.props.user.name}! In order to create a household, please enter a name, unique username and pin to share it with everyone at home</p>
 				
 				<form className='formToEdit' onSubmit={this.handleSubmit}>
 					<div className="formBox">
@@ -76,7 +76,7 @@ export default class CreateHousehold extends Component {
 						/>
 					</div>
 					
-					<button type="submit">Sign up!</button>
+					<button type="submit">Create!</button>
 					{this.state.message && (
 						<h3>{this.state.message}</h3>
 					)}

@@ -17,7 +17,7 @@ export default class WelcomePage extends Component {
                 <div className='introBox'>
                     <div className='banner'>
                         <h1>PlanEss</h1>
-                        <h2> planning your Grocery Shopping should not be hard</h2>
+                        <h2>Planning and sharing your grocery list has never been easier</h2>
                         <button className = "signUpUnder"> <Link to="signup"> <span className= "hoverfun"> Start planning Now</span> </Link></button>
                     </div>
                 </div>
