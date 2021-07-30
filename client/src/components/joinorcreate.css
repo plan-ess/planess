@@ -3,9 +3,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
 }
 
 a{
     text-decoration: none;
     color: palevioletred;
+}
+
+.linksJoinOrCreate h3 {
+    font-family: "Work Sans", sans-serif;
+}
+
+.linksJoinOrCreate h3:hover {
+    color:#E4B3F2
 }

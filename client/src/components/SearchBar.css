@@ -1,0 +1,8 @@
+.searchContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchContainer label {
+    margin-left: 10px;
+}

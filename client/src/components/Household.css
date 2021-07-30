@@ -1,0 +1,9 @@
+.intro{
+    font-size: 50px;
+}
+.householdPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Work Sans", sans-serif;
+}

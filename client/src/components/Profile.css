@@ -1,0 +1,14 @@
+.profileSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileInfo {
+    font-size: 20px;
+}
+
+.editBttn {
+    font-size: 40px;
+}

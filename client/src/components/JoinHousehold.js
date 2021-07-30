@@ -41,25 +41,29 @@ export default class JoinHousehold extends Component {
 	render() {
 			return (
 				<section className="formContainer">
-					<h1>Hi {this.props.user.name} !!! </h1>					
-					<h1>Join an existing Household</h1>
-					
-					<form onSubmit={this.handleSubmit}>
-						<label htmlFor="username">Username: </label>
-						<input
-							type="text"
-							name="username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
-						<label htmlFor="pin">Set a 4-digit pin: </label>
-						<input
-							type="password"
-							name="pin"
-							value={this.state.password}
-							onChange={this.handleChange}
-						/>
-						<button type="submit">Sign up!</button>
+					<p className="fontFix"> Welcome, {this.props.user.name}! In order to join an existing Household, please enter the home’s username and pin</p>
+
+					<form className='formToEdit' onSubmit={this.handleSubmit}>
+						<div className="formBox">
+							<label htmlFor="username">Username: </label>
+							<input
+								type="text"
+								name="username"
+								value={this.state.username}
+								onChange={this.handleChange}
+							/>
+						</div>
+						<div className="formBox">
+							<label htmlFor="pin">4-digit pin: </label>
+							<input
+								type="password"
+								name="pin"
+								value={this.state.password}
+								onChange={this.handleChange}
+							/>
+						</div>
+
+						<button type="submit">Join the Household!</button>
 						{this.state.message && (
 							<h3>{this.state.message}</h3>
 						)}

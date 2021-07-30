@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import EditProfile from './EditProfile';
+import './Profile.css';
 
 export default class Profile extends Component {
 
@@ -78,12 +79,15 @@ export default class Profile extends Component {
 
         if (!this.state.household) return <> </>
         return (
-            <>
+            <section className='formToEdit profileSection'>
               <h1>Welcome to {this.state.household.name}</h1>
-              <h3>Name: {this.state.user.name}</h3>  
-              <h3>Email: {this.state.user.email}</h3>
 
-              <button onClick={this.toggleEditForm}>Edit</button>
+              <div className='profileInfo'>
+                <h3>Name: {this.state.user.name}</h3>  
+                <h3>Email: {this.state.user.email}</h3>
+              </div>
+
+              <button className='editBttn' onClick={this.toggleEditForm}>Edit info</button>
 
               {this.state.editForm && (
                   <EditProfile
@@ -92,7 +96,7 @@ export default class Profile extends Component {
                     handleChange={this.handleChange}
                   />
               )}
-            </>
+            </section>
         )
     }
 }
