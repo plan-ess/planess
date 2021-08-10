@@ -1,13 +1,13 @@
 ![logo_planess 7](https://res.cloudinary.com/di76jljny/image/upload/v1628604420/Screenshot_2021-08-10_at_16.01.38_m9qfdv.png)
 
-# Ironhack Project : "PlanEss" by Josue Prieto-Paz & Alan Sanchez
+# "PlanEss" by Josue Prieto-Paz & Alan Sanchez
 
 <br><br>
 
 ## About us
 <br>
-We are students in Ironhack Berlin's Web Dev Bootcamp.
-For this project, the task was to create an MERN Web App from scratch.
+We are graduates from Ironhack Berlin's Web Dev Bootcamp.
+For this final project, the task was to create an MERN Web App from scratch.
 <br>
 
 ## About "PlanEss"
